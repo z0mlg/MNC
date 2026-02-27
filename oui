@@ -1,3 +1,4 @@
+print("Nigger")
 if getgenv().Library then
     getgenv().Library:Unload()
 end
@@ -8827,4 +8828,3 @@ api.load_script()
 getgenv().Library = Library
 return Library
 
-print("Nigger")

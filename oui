@@ -410,11 +410,23 @@ local Library do
 
             if Event == "MouseButton1Down" or Event == "MouseButton1Click" then 
                 if IsMobile then 
-                    Event = "TouchTap"
+                    return Library:Connect(self.Instance.InputBegan, function(Input)
+                        if Input.UserInputType == Enum.UserInputType.Touch then
+                            Callback()
+                        end
+                    end, Name)
+                else
+                    return Library:Connect(self.Instance[Event], Callback, Name)
                 end
             elseif Event == "MouseButton2Down" or Event == "MouseButton2Click" then 
                 if IsMobile then
-                    Event = "TouchLongPress"
+                    return Library:Connect(self.Instance.InputBegan, function(Input)
+                        if Input.UserInputType == Enum.UserInputType.Touch then
+                            Callback()
+                        end
+                    end, Name)
+                else
+                    return Library:Connect(self.Instance[Event], Callback, Name)
                 end
             end
 
@@ -8814,3 +8826,5 @@ api.load_script()
 
 getgenv().Library = Library
 return Library
+
+print("Nigger")
